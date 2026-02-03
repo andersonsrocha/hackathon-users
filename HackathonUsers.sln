@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{DD60BE53-C0B8-4C59-ABD4-139C6918615A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackathonUsers.Api", "src\HackathonUsers.Api\HackathonUsers.Api.csproj", "{6AD450F3-9D21-4F88-9495-9A3E3AB4D953}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Domain", "2 - Domain", "{2443D134-F6E2-4CAE-B382-9672022181AC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Application", "3 - Application", "{CCD5F645-607F-44F7-ABA4-AAC53D24E8D8}"
+	ProjectSection(SolutionItems) = preProject
+		AutoMapperProfile.cs = AutoMapperProfile.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{8D7EB0C9-D354-4FD8-A31B-CE28FED9F44B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 - Data", "4.1 - Data", "{7014F2EF-53B8-46D9-9C4B-5EBCC23F8589}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 - Security", "4.2 - Security", "{22769745-4DD1-4C30-B9EB-8416A422C2D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackathonUsers.Domain", "src\HackathonUsers.Domain\HackathonUsers.Domain.csproj", "{F7CBE997-FFAD-4678-93EF-C24F21318416}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackathonUsers.Application", "src\HackathonUsers.Application\HackathonUsers.Application.csproj", "{9FC3180A-1DA7-4A13-9889-065000EC099D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackathonUsers.Data", "src\HackathonUsers.Data\HackathonUsers.Data.csproj", "{5316ECE3-938B-466F-8D51-9DCE469AF412}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackathonUsers.Security", "src\HackathonUsers.Security\HackathonUsers.Security.csproj", "{8C3F77A1-BF3C-41F2-865B-B62D3A49EE24}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6AD450F3-9D21-4F88-9495-9A3E3AB4D953}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AD450F3-9D21-4F88-9495-9A3E3AB4D953}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AD450F3-9D21-4F88-9495-9A3E3AB4D953}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AD450F3-9D21-4F88-9495-9A3E3AB4D953}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7CBE997-FFAD-4678-93EF-C24F21318416}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7CBE997-FFAD-4678-93EF-C24F21318416}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7CBE997-FFAD-4678-93EF-C24F21318416}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7CBE997-FFAD-4678-93EF-C24F21318416}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FC3180A-1DA7-4A13-9889-065000EC099D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FC3180A-1DA7-4A13-9889-065000EC099D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FC3180A-1DA7-4A13-9889-065000EC099D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FC3180A-1DA7-4A13-9889-065000EC099D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5316ECE3-938B-466F-8D51-9DCE469AF412}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5316ECE3-938B-466F-8D51-9DCE469AF412}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5316ECE3-938B-466F-8D51-9DCE469AF412}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5316ECE3-938B-466F-8D51-9DCE469AF412}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C3F77A1-BF3C-41F2-865B-B62D3A49EE24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C3F77A1-BF3C-41F2-865B-B62D3A49EE24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C3F77A1-BF3C-41F2-865B-B62D3A49EE24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C3F77A1-BF3C-41F2-865B-B62D3A49EE24}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6AD450F3-9D21-4F88-9495-9A3E3AB4D953} = {DD60BE53-C0B8-4C59-ABD4-139C6918615A}
+		{7014F2EF-53B8-46D9-9C4B-5EBCC23F8589} = {8D7EB0C9-D354-4FD8-A31B-CE28FED9F44B}
+		{22769745-4DD1-4C30-B9EB-8416A422C2D9} = {8D7EB0C9-D354-4FD8-A31B-CE28FED9F44B}
+		{F7CBE997-FFAD-4678-93EF-C24F21318416} = {2443D134-F6E2-4CAE-B382-9672022181AC}
+		{9FC3180A-1DA7-4A13-9889-065000EC099D} = {CCD5F645-607F-44F7-ABA4-AAC53D24E8D8}
+		{5316ECE3-938B-466F-8D51-9DCE469AF412} = {7014F2EF-53B8-46D9-9C4B-5EBCC23F8589}
+		{8C3F77A1-BF3C-41F2-865B-B62D3A49EE24} = {22769745-4DD1-4C30-B9EB-8416A422C2D9}
+	EndGlobalSection
+EndGlobal
