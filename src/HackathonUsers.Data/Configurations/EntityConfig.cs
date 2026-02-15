@@ -11,11 +11,11 @@ public abstract class EntityConfig<TEntity> : IEntityTypeConfiguration<TEntity> 
         builder.HasKey(x => x.Id);
 
         builder.Property(x => x.Active)
-            .HasColumnType("boolean")
+            .HasColumnType("bit")
             .IsRequired();
 
         builder.Property(x => x.CreatedIn)
-            .HasDefaultValueSql("now()")
+            .HasDefaultValueSql("getdate()")
             .IsRequired()
             .ValueGeneratedOnAdd();
 

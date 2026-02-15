@@ -1,3 +1,3 @@
 ﻿namespace HackathonUsers.Domain.Dto;
 
-public record UserDto(string Name, string Email);
+public record UserDto(Guid Id, string Name, string Email);

@@ -7,9 +7,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Domain", "2 - Domain", "{2443D134-F6E2-4CAE-B382-9672022181AC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Application", "3 - Application", "{CCD5F645-607F-44F7-ABA4-AAC53D24E8D8}"
-	ProjectSection(SolutionItems) = preProject
-		AutoMapperProfile.cs = AutoMapperProfile.cs
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{8D7EB0C9-D354-4FD8-A31B-CE28FED9F44B}"
 EndProject

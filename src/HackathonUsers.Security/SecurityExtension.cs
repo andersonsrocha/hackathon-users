@@ -6,13 +6,17 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using HackathonUsers.Data;
 using HackathonUsers.Domain.Models;
+using HackathonUsers.Security.Interfaces;
+using HackathonUsers.Security.Models;
+using HackathonUsers.Security.Services;
 
 namespace HackathonUsers.Security;
 
-public static class JwtExtension
+public static class SecurityExtension
 {
     public static void AddSecurity(this IServiceCollection services, IConfiguration configuration)
     {
+        services.Configure<ServiceClientOptions>(options => configuration.GetSection("ServiceClients").Bind(options.Clients));
         // Adicionar o Identity
         services.AddIdentity<User, IdentityRole<Guid>>(options =>
             {
@@ -28,6 +32,7 @@ public static class JwtExtension
             .AddDefaultTokenProviders();
         // Configurar a autenticação JWT
         services.AddTransient<IJwtService, JwtService>();
+        services.AddSingleton<IServiceClientValidation, ServiceClientValidation>();
         services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -51,10 +56,15 @@ public static class JwtExtension
                 };
             });
 
-        services.AddAuthorization(options =>
-        {
-            options.AddPolicy("Admin", policy => policy.RequireRole("Admin"));
-            options.AddPolicy("User", policy => policy.RequireRole("Admin", "User"));
-        });
+        services.AddAuthorizationBuilder()
+            .AddPolicy("Admin", policy => policy.RequireAssertion(ctx =>
+                ctx.User.IsInRole("Admin") ||
+                ctx.User.HasClaim("token_type", "service")
+            ))
+            .AddPolicy("User", policy => policy.RequireAssertion(ctx =>
+                ctx.User.IsInRole("Admin") ||
+                ctx.User.IsInRole("User") ||
+                ctx.User.HasClaim("token_type", "service")
+            ));
     }
 }

@@ -1,3 +1,3 @@
 ﻿namespace HackathonUsers.Domain.Dto;
 
-public record LoginDto(string Token);
+public record LoginDto(string Token, int ExpiresIn);

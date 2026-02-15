@@ -2,7 +2,7 @@
 using MediatR;
 using OperationResult;
 
-namespace HackathonUsers.Application.Users.Commands;
+namespace HackathonUsers.Application.Auth.Commands;
 
 public sealed class LoginUserRequest : IRequest<Result<LoginDto>>
 {
