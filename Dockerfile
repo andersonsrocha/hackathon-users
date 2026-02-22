@@ -4,18 +4,23 @@ WORKDIR /src
 # Copiar arquivos de projeto para melhor cache do Docker
 COPY HackathonUsers.sln ./
 COPY src/HackathonUsers.Api/HackathonUsers.Api.csproj src/HackathonUsers.Api/
-
-# Realizar o restore
-RUN dotnet restore
+COPY src/HackathonUsers.Application/HackathonUsers.Application.csproj src/HackathonUsers.Application/
+COPY src/HackathonUsers.Data/HackathonUsers.Data.csproj src/HackathonUsers.Data/
+COPY src/HackathonUsers.Domain/HackathonUsers.Domain.csproj src/HackathonUsers.Domain/
+COPY src/HackathonUsers.Security/HackathonUsers.Security.csproj src/HackathonUsers.Security/
 
 # Copiar arquivos
 COPY src/ src/
 
 # Publicar o projeto
-RUN dotnet publish src/HackathonUsers.Api/HackathonUsers.Api.csproj -c Release -o /app/publish --no-restore
+RUN dotnet publish src/HackathonUsers.Api/HackathonUsers.Api.csproj -c Release -o /app/publish
 
 # Runtime stage - usando Alpine para imagem mais leve
 FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS runtime
+
+RUN apk add --no-cache icu-libs
+
+ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
 
 # Instalar New Relic
 RUN apk update && apk add --no-cache wget tar \
@@ -33,7 +38,6 @@ NEW_RELIC_APPLICATION_LOGGING_FORWARDING_ENABLED=true \
 NEW_RELIC_APPLICATION_LOGGING_FORWARDING_CONTEXT_DATA_ENABLED=true \
 NEW_RELIC_APPLICATION_LOGGING_FORWARDING_MAX_SAMPLES_STORED=10000 \
 NEW_RELIC_APPLICATION_LOGGING_LOCAL_DECORATING_ENABLED=true \
-NEW_RELIC_LICENSE_KEY=e20ffdce07272085d33407e1b5408156FFFFNRAL \
 NEW_RELIC_APP_NAME="hackathon-users-newrelic"
 
 WORKDIR /app

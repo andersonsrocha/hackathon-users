@@ -13,7 +13,7 @@ public class GlobalExceptionMiddleware(RequestDelegate next)
         }
         catch (Exception ex)
         {
-            var correlationId = context.Items["correlationId"]?.ToString() ?? string.Empty;
+            var correlationId = context.Items["CorrelationId"]?.ToString() ?? string.Empty;
             const string logTemplate = "An unexpected fault happened, please contact your Administrator with the error id: {CorrelationId}.";
 
             logger.LogError(ex, logTemplate, correlationId);

@@ -9,14 +9,14 @@ public class CorrelationIdMiddleware(RequestDelegate next)
         context.Request.Headers.TryGetValue("X-Correlation-Id", out var correlationIds);
         var correlationId = correlationIds.FirstOrDefault() ?? Guid.NewGuid().ToString();
         
-        context.Items["correlationId"] = correlationId;
+        context.Items["CorrelationId"] = correlationId;
         
         NewRelic.Api.Agent.NewRelic
             .GetAgent()
             .CurrentTransaction
-            .AddCustomAttribute("correlationId", correlationId);
+            .AddCustomAttribute("CorrelationId", correlationId);
 
-        using (LogContext.PushProperty("correlationId", correlationId))
+        using (LogContext.PushProperty("CorrelationId", correlationId))
         {
             await next(context);
         }

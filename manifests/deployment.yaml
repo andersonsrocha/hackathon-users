@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user
+  template:
+    metadata:
+      labels:
+        app: user
+    spec:
+      containers:
+        - name: user-container
+          image: andersonsrocha/user:latest
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "150m"
+            limits:
+              memory: "512Mi"
+              cpu: "250m"
+          env:
+            - name: Jwt__Issuer
+              valueFrom:
+                configMapKeyRef:
+                  name: user-config
+                  key: JWT_ISSUER
+            - name: Jwt__Audience
+              valueFrom:
+                configMapKeyRef:
+                  name: user-config
+                  key: JWT_AUDIENCE
+            - name: ENVIRONMENT
+              valueFrom:
+                configMapKeyRef:
+                  name: user-config
+                  key: ENVIRONMENT
+
+            - name: ConnectionStrings__SQLConnection
+              valueFrom:
+                secretKeyRef:
+                  name: user-secrets
+                  key: connectionstring
+            - name: Jwt__Key
+              valueFrom:
+                secretKeyRef:
+                  name: user-secrets
+                  key: jwtkey
+            - name: NEW_RELIC_LICENSE_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: user-secrets
+                  key: newrelickey
+            - name: ServiceClients
+              valueFrom:
+                secretKeyRef:
+                  name: user-secrets
+                  key: serviceclients

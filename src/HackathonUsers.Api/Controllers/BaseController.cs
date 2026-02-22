@@ -40,7 +40,7 @@ public class BaseController(ILogger<BaseController> logger) : ControllerBase
     [NonAction]
     private ObjectResult TreatError(Exception? error)
     {
-        var correlationId = HttpContext.Items["correlationId"]?.ToString() ?? "N/A";
+        var correlationId = HttpContext.Items["CorrelationId"]?.ToString() ?? "N/A";
         switch (error)
         {
             case not null:
