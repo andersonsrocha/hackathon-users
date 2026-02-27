@@ -41,7 +41,7 @@ spec:
                   name: user-config
                   key: ENVIRONMENT
 
-            - name: ConnectionStrings__SQLConnection
+            - name: ConnectionStrings__SqlConnection
               valueFrom:
                 secretKeyRef:
                   name: user-secrets

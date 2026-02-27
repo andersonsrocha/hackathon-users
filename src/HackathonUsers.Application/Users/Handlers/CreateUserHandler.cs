@@ -31,8 +31,7 @@ public class CreateUserHandler(UserManager<User> userManager, IUserStore<User> u
             return Result.Error<UserDto>(new Exception(userManager.ErrorDescriber.InvalidEmail(email).Description));
 
         logger.LogInformation("Checking if password is valid.");
-        var passwordIsValid =
-            await userManager.PasswordValidators[0].ValidateAsync(userManager, user, request.Password);
+        var passwordIsValid = await userManager.PasswordValidators[0].ValidateAsync(userManager, user, request.Password);
         if (!passwordIsValid.Succeeded)
             return Result.Error<UserDto>(new Exception(passwordIsValid.Errors.First().Description));
 

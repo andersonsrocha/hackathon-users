@@ -7,7 +7,7 @@ using OperationResult;
 
 namespace HackathonUsers.Application.Auth.Handlers;
 
-public class LoginServiceHandler(IJwtService jwtService, IServiceClientValidation clientValidator, ILogger<LoginUserHandler> logger) : IRequestHandler<LoginServiceRequest, Result<LoginDto>>
+public class LoginServiceHandler(IJwtService jwtService, IServiceClientValidation clientValidator, ILogger<LoginServiceHandler> logger) : IRequestHandler<LoginServiceRequest, Result<LoginDto>>
 {
     public Task<Result<LoginDto>> Handle(LoginServiceRequest request, CancellationToken cancellationToken)
     {
