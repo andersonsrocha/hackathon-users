@@ -86,7 +86,7 @@ public class CreateUserHandlerTest
     }
     
     [Fact]
-    public async Task CreateAsync_WhenPasswordWithoutLetter_ShouldReturnError()
+    public async Task Handle_WhenPasswordWithoutLetter_ShouldReturnError()
     {
         // Arrange
         var request = new CreateUserRequest { Email = "teste@exemplo.com", Name = "Teste", Password = "12345678" };
@@ -101,7 +101,7 @@ public class CreateUserHandlerTest
     }
     
     [Fact]
-    public async Task CreateAsync_WhenValidPassword_ShouldReturnSuccess()
+    public async Task Handle_WhenValidPassword_ShouldReturnSuccess()
     {
         // Arrange
         var request = new CreateUserRequest { Email = "teste@exemplo.com", Name = "Teste", Password = "Passw0rd@" };

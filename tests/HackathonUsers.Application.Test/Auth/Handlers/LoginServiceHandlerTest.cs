@@ -81,7 +81,7 @@ public class LoginServiceHandlerTest
     }
     
     [Fact]
-    public async Task LoginJwtGenerate_WhenValidEmailAndPassword_ShouldReturnSuccess()
+    public async Task JwtGenerate_WhenValidEmailAndPassword_ShouldReturnSuccess()
     {
         // Arrange
         var request = new LoginServiceRequest { ClientId = Guid.NewGuid(), ClientSecret = "SenhaExtremamenteForte123" };

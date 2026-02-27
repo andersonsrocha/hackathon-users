@@ -82,7 +82,7 @@ public class LoginUserHandlerTest
     }
     
     [Fact]
-    public async Task LoginJwtGenerate_WhenValidEmailAndPassword_ShouldReturnSuccess()
+    public async Task JwtGenerate_WhenValidEmailAndPassword_ShouldReturnSuccess()
     {
         // Arrange
         var user = new User();
